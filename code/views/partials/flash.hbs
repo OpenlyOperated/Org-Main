@@ -1,0 +1,20 @@
+{{#if flash.error}}
+  <div class="alert alert-danger mx-auto" role="alert">
+    {{{ flash.error }}}
+    <div>
+      If this error persists, please <a href="mailto:admin@{{DOMAIN}}">email us</a>.
+    </div>
+  </div>
+{{/if}}
+
+{{#if flash.info}}
+  <div class="alert alert-info mx-auto" role="alert">
+    {{ flash.info }}
+  </div>
+{{/if}}
+
+{{#if flash.success}}
+  <div class="alert alert-success mx-auto" role="alert">
+    {{ flash.success }}
+  </div>
+{{/if}}

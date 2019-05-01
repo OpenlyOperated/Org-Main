@@ -1,0 +1,65 @@
+{{> header title="Audit Reports" }}
+
+<body>
+  
+  {{> nav active }}
+  
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-12">
+        <h4 class="text-center serif mb-4 pb-2 mt-0 pt-5">Audit Reports</h4>
+        <hr>
+      </div>
+    </div>
+    
+    <div class="row">
+      
+      {{> flash }}
+      
+      <div class="col-lg-10 offset-lg-1 pt-4">
+        
+        <div class="row">
+          
+          {{#each reports}}
+          <div class="col-lg-4 col-md-6">
+            <div class="card text-black bg-white mb-3 shadow">
+              <div class="card-body">
+                <h5 class="card-title">{{this.title}}</h5>
+                <p class="mb-0 small">Created on {{this.createDateBlog}}</p>
+                <p class="mb-2 small">Updated on {{this.updateDateBlog}}</p>
+                <a href="/report/{{this.alias}}" class="btn btn-primary btn-lg float-right mt-2">Audit Kit & Results →</a>
+              </div>
+            </div>
+          </div>
+          {{/each}}
+        
+          <div class="col-lg-4 col-md-6">
+            <div class="card text-black mb-3 shadow" style="background-color: #ddd;">
+              <div class="card-body">
+                <h5 class="card-title">Your Product</h5>
+                <p class="mb-2 small">Get listed here by submitting your Openly Operated product's Audit Kit.</p>
+                <a href="/how-to" target="_blank" class="btn btn-primary btn-lg float-right mt-2">+ Submit Audit Kit</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-lg-12 pt-3">
+            <p class="mb-2">Openly Operated is a new (released April 2019) standard, and we need your help! If you want to see more products be fully transparent through comprehensive Audit Kits and Reports like the ones on this page, help spread the word, stay informed, and learn more below.</p>
+          </div>
+        
+        </div>
+        
+      </div>
+  
+      {{> bottom }}
+      
+    </div>
+    
+  </div>
+  
+  {{> footer}}
+
+  {{> bootstrapjs}}
+  
+</body>

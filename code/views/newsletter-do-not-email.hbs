@@ -1,0 +1,45 @@
+{{> header title="Newsletter Opt Out" }}
+
+<body data-spy="scroll">
+  
+  {{> nav active }}
+  
+  <div class="container">
+    
+    <div class="row">
+    
+      <div class="col-lg-8 offset-lg-2 text-left">
+      
+        <h1 class="h4 text-center mt-5 pt-2">Newsletter Opt Out</h1>
+      
+        {{> flash }}
+        
+        <p class="mt-4">
+          Are you sure you want to opt out of all future emails from the newsletter? You will have to contact support at <a style="text-decoration: none;" href="mailto:team@{{DOMAIN}}">team@{{DOMAIN}}</a> to undo this.
+        </p>
+
+        <form action="/newsletter-do-not-email" method="POST">
+          <input type="email" id="email" name="email" class="form-control mb-1 mt-2" value="{{email}}" required>
+          <input type="text" id="reason" name="reason" class="form-control mb-1 mt-2" value="{{reason}}" placeholder="Reason for Opting Out">
+          <input type="hidden" id="code" name="code" class="form-control mb-1 mt-2" value="{{code}}" required>
+          <div class="mx-auto text-center">
+            <a href="/" class="btn btn-lg btn-primary mt-3">Cancel</a>
+            <button id="newsletterDoNotEmailButton" type="submit" class="btn btn-lg btn-danger mt-3">Opt Out</button>
+          </div>
+        </form>
+      
+      </div>
+      
+    </div>
+    
+  </div>
+  
+  {{> footer}}
+
+  {{> bootstrapjs}}
+  
+  <script>
+    
+  </script>
+  
+</body>

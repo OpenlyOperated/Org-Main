@@ -1,0 +1,61 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark shadow navbar-lg">
+  <a class="navbar-brand" href="/">
+    Openly Operated
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link {{#if active_about_us}}active{{/if}}" href="/about-us">About Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{#if active_user_benefits}}active{{/if}}" href="/user-benefits">User Benefits</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{#if active_for_companies}}active{{/if}}" href="/for-companies">For Companies</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{#if active_how_to}}active{{/if}}" href="/how-to">How To</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{#if active_auditors}}active{{/if}}" href="/auditors">Auditors</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{#if active_reports}}active{{/if}}" href="/reports">Reports</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{#if active_faq}}active{{/if}}" href="/faq">FAQ</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{#if active_blog}}active{{/if}}" href="/blog">Blog</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{#if active_contact}}active{{/if}}" href="/contact">Contact</a>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link btn btn-sm btn-success mx-2" data-toggle="modal" data-target="#newsletterModal" style="text-shadow: 1px 1px 4px #222; border-radius: 3px;">Get Newsletter</button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div id="newsletterModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title sans-serif">Stay Informed</h5>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <p>If you think full, provable transparency is important in the apps and services we all use, subscribe to the Openly Operated newsletter.</p>
+        {{> emailsubscribe id='999' size='lg'}}
+        <p class="small text-left mt-1">Your email address is kept private and never shared with third parties &mdash; see <a href="/report/openlyoperated#email-address-privacy" target="_blank">the proof</a> in OpenlyOperated.org's <a href="/report/openlyoperated" target="_blank">Audit Kit</a>.</p>
+      </div>
+
+    </div>
+  </div>
+</div>

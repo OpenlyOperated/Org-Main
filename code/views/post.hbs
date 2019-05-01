@@ -1,0 +1,25 @@
+{{> header title=post.title }}
+
+<body data-spy="scroll" data-target="#scrollspy-list-group" data-offset="60">
+  
+  {{> nav active }}
+  
+  <div class="container">
+    
+    {{> flash }}
+    
+    {{{ post.html }}}
+    
+    {{#if footer }}
+    
+    {{> bottom }}
+
+    {{/if}}
+    
+  </div>
+  
+  {{> footer}}
+
+  {{> bootstrapjs}}
+  
+</body>

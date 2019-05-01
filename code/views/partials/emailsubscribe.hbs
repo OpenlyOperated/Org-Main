@@ -1,0 +1,61 @@
+<div class="input-group">
+  <label for="email" class="sr-only">Email Address</label>
+  <div class="input-group">
+    <input type="email" id="subscribeEmail{{id}}" class="form-control form-control-{{size}}" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;" name="email" placeholder="Enter Email For Updates" onkeydown="checkEnter{{id}}(this)" required>
+    <div class="input-group-append">
+      <button class="btn btn-success btn-{{size}}" style="border-top-right-radius: 0.25rem; border-bottom-right-radius: 0.25rem;" id="subscribeEmailButton{{id}}" onclick="subscribeEmail{{id}}();" type="button">Subscribe</button>
+    </div>
+  </div>
+  <div class="alert alert-danger mt-1 mb-0 w-100 d-none" id="subscriptionError{{id}}">
+  </div>
+  <div class="alert alert-warning mt-1 mb-0 w-100 d-none" id="subscriptionSuccess{{id}}">
+    Last step - click the confirmation in your email. If you don't see it, check your spam folder.
+  </div>
+</div>
+
+<script>
+  
+  function setEmailError{{id}}(text) {
+    document.getElementById("subscriptionError{{id}}").classList.remove("d-none");
+    document.getElementById("subscriptionError{{id}}").innerText = text;
+    document.getElementById("subscriptionError{{id}}").classList.add("d-block");
+  }
+  
+  function clearEmailError{{id}}() {
+    document.getElementById("subscriptionError{{id}}").classList.remove("d-block");
+    document.getElementById("subscriptionError{{id}}").classList.add("d-none");
+    document.getElementById("subscriptionError{{id}}").innerText = "";
+  }
+  
+  function subscribeEmail{{id}}() {
+    document.getElementById("subscribeEmailButton{{id}}").disabled = true;
+    clearEmailError{{id}}();
+		var http = new XMLHttpRequest();
+		var url = "newsletter-subscribe";
+		http.open("POST", url, true);
+  	var params = "email=" + encodeURIComponent(document.getElementById("subscribeEmail{{id}}").value);
+    http.responseType = 'json';
+		http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		http.onreadystatechange = function() {
+	    if (http.readyState == 4) {
+				if (http.status == 200) {
+          document.getElementById("subscriptionSuccess{{id}}").classList.remove("d-none");
+          document.getElementById("subscriptionSuccess{{id}}").classList.add("d-block");
+          document.getElementById("subscribeEmail{{id}}").value = "";
+          document.getElementById("subscribeEmailButton{{id}}").innerText = "Check Email";
+          return;
+				}
+        setEmailError{{id}}(http.response.message);
+        document.getElementById("subscribeEmailButton{{id}}").disabled = false;
+	    }
+		}
+		http.send(params);
+  }
+  
+  function checkEnter{{id}}(e) {
+    if ( event.key == "Enter" ) {
+      subscribeEmail{{id}}(e.value);
+    }
+  }
+  
+</script>

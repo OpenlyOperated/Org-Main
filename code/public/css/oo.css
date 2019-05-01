@@ -1,0 +1,52 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+@media (max-width: 767px) {
+  body {
+    margin-bottom: 600px;
+    padding-top: 57px !important;
+  }
+  .footer {
+    height: 600px;
+  }
+}
+
+@media (min-width: 767px) {
+  body {
+    margin-bottom: 280px;
+    padding-top: 54px !important;
+  }
+  .footer {
+    height: 280px;
+  }
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #f5f5f5;
+}
+
+.ooTable td {
+  padding: 10px;
+}
+
+.ooTable tr {
+  border-bottom: 1px solid #ccc;
+}
+
+.invalid-input-error {
+  color: red;
+}
+
+:target:before {
+  content: "_";
+  display: block;
+  height: 40px;
+  position: relative;     
+  top: 0px;
+  visibility: hidden;
+}

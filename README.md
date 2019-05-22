@@ -25,6 +25,21 @@ __Response__
 
 Looks up the page using `alias` and displays it.
 
+### View Page With ID
+__Request__
+
+```
+GET /post?id=[id]
+```
+
+Name | Type | Description
+--- | --- | ---
+`id` | `integer` | __Required__ The post ID requested. Must be an integer.
+
+__Response__
+
+Looks up the page using `id` and displays it.
+
 ### Home Page
 __Request__
 

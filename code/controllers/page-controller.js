@@ -48,6 +48,29 @@ router.get(["/report/:alias", "/post/:alias"],
     .catch( error => next(error) );
 });
 
+router.get("/post",
+[
+  query("id")
+    .exists().withMessage("Missing id.")
+    .not().isEmpty().withMessage("Missing id.")
+    .isNumeric({
+      no_symbols: true
+    }),
+  ValidateCheck
+],
+(request, response, next) => {
+  const id = request.values.id;
+  
+  return Post.getById(id, false)
+    .then(post => {
+      return response.render("post", {
+        post: post,
+        footer: true
+      });
+    })
+    .catch( error => next(error) );
+});
+
 router.get("/", (request, response, next) => {
   return Post.list("home", false)
     .then(posts => {

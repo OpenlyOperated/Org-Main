@@ -190,14 +190,11 @@ router.get("/contact",
 
 router.get("/blog",
 (request, response, next) => {
-  return Post.list("blog", false)
+  return Post.list("blog", false, false)
     .then(posts => {
-      return response.render("posts", {
-        toc: false,
-        title: "Blog",
+      return response.render("blog", {
+        title: "News and Updates",
         active: { active_blog: true },
-        showDate: true,
-        showAuthor: true,
         posts: posts
       });
     })

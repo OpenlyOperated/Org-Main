@@ -8,6 +8,20 @@
     
     {{> flash }}
     
+    {{#if newsletter }}
+    <div class="row">
+      <div class="col-md-10 offset-md-1 bg-light px-3 pt-3 mt-5 pb-2 rounded text-center">
+        <h4 class="text-center mb-2 mt-3">The Transparency Newsletter</h4>
+        <p>Get monthly updates on transparency, privacy, and building verifiable trust in apps and services.</p>
+        <div class="mx-auto mb-4 pb-2" style="max-width: 480px;">
+          {{> emailsubscribe id='100'}}
+          <p class="small text-left mt-1 mb-0" style="font-size: 12px;">Your email address is kept private and never shared with third parties &mdash; see <a href="/report/openlyoperated#email-address-privacy" target="_blank">the proof</a> in OpenlyOperated.org's <a href="/report/openlyoperated" target="_blank">Audit Kit</a>.</p>
+        </div>
+      </div>
+    </div>
+
+    {{/if}}
+    
     {{{ post.html }}}
     
     {{#if footer }}

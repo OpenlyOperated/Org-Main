@@ -76,6 +76,7 @@ router.get("/", (request, response, next) => {
     .then(posts => {
       return response.render("post", {
         active: { active_home: true },
+        newsletter: true,
         post: posts[0],
         footer: true
       });

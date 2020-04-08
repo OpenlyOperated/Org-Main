@@ -1,15 +1,31 @@
 <head>
-  <title>{{title}}</title>
+  <title>{{title}} - Openly Operated</title>
   
 	<meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Trust through total transparency.">
+  {{#if description }}
+  <meta name="description" content="{{description}}">
+  {{else}}
+  <meta name="description" content="Trust through transparency.">
+  {{/if}}
+  {{#if author }}
+  <meta name="author" content="{{author}}">
+  {{else}}
   <meta name="author" content="Openly Operated">
+  {{/if}}
 
 	<meta property="og:type" content="product">
-	<meta property="og:title" content="Openly Operated">
+  {{#if title }}
+	<meta property="og:title" content="{{title}} - Openly Operated">
+  {{ else }}
+  <meta property="og:title" content="Openly Operated">
+  {{/if}}
+  {{#if description }}
+	<meta property="og:description" content="{{description}}">
+  {{ else }}
 	<meta property="og:description" content="Trust through transparency.">
+  {{/if}}
 	<meta property="og:url" content="https://openlyoperated.org">
   <meta property="og:image" content="https://openlyoperated.org/images/glasses.png">
 

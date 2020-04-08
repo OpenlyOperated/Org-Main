@@ -48,6 +48,43 @@ router.get(["/report/:alias", "/post/:alias"],
     .catch( error => next(error) );
 });
 
+router.get(["/blog/:alias"],
+[
+  checkSchema({
+    alias: {
+      in: ["params"],
+      customSanitizer: {
+        options: (value, { request, location, path }) => {
+          if (value) {
+            return value.toLowerCase();
+          }
+          return null;
+        }
+      },
+      matches: {
+        options: Post.aliasPattern
+      },
+      errorMessage: "Invalid Alias"
+    }
+  }),
+  query("footer"),
+  ValidateCheck
+],
+(request, response, next) => {
+  const alias = request.values.alias;
+  const footer = (request.values.footer == "false") ? false : true;
+  
+  return Post.getByAlias(alias, false)
+    .then(post => {
+      return response.render("blog-post", {
+        active: { active_blog: true },
+        post: post,
+        footer: footer
+      });
+    })
+    .catch( error => next(error) );
+});
+
 router.get("/post",
 [
   query("id")

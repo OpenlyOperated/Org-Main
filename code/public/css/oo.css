@@ -50,3 +50,26 @@ html {
   top: 0px;
   visibility: hidden;
 }
+
+.list-group-item {
+  padding-top: 0.200rem !important;
+  padding-bottom: 0.200rem !important;
+}
+
+.list-group-item {
+  border: 0px !important;
+}
+
+.list-group-item:first-child {
+  border-top-left-radius: 0.0rem !important;
+  border-top-right-radius: 0.0rem !important;
+}
+
+.list-group-item:last-child {
+  border-bottom-left-radius: 0.0rem !important;
+  border-bottom-right-radius: 0.0rem !important;
+}
+
+.list-group-item-action:hover, .list-group-item-action:focus {
+  border: 0px !important;
+}

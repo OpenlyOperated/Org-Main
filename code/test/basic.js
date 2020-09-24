@@ -4,9 +4,13 @@ chai.use(require("chai-http"));
 const server = require("../app");
 const should = chai.should();
 const Constants = require('./constants.js');
-const { reset } = require("./utilities.js");
+const {
+  reset
+} = require("./utilities.js");
 
-const { Secure } = require("shared/utilities");
+const {
+  Secure
+} = require("shared/utilities");
 
 // describe.only("Skip All", () => {
 //   it("should skip all tests", (done) => {
@@ -58,7 +62,7 @@ describe("Basic", () => {
     });
   });
 
-  describe("404 Not Found - Browser", () => {
+  describe.skip("404 Not Found - Browser", () => {
     it("should respond 404", (done) => {
       chai.request(server)
         .get("/invalid-url")
@@ -71,7 +75,7 @@ describe("Basic", () => {
     });
   });
 
-  describe("Force a 500 Error - Browser", () => {
+  describe.skip("Force a 500 Error - Browser", () => {
     it("should not expose error details to client", (done) => {
       chai.request(server)
         .get("/error-test")

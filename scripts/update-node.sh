@@ -2,4 +2,4 @@
 
 npm install -g n
 n 10
-npm install -g npm
+npm install -g npm@6

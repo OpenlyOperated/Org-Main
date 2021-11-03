@@ -23,7 +23,7 @@
     "helmet": "^3.16.0",
     "markdown-it-container": "^2.0.0",
     "shared": "file:../../shared",
-    "validator": "^9.1.1",
+    "validator": "^13.7.0",
     "winston": "^3.2.1"
   },
   "devDependencies": {

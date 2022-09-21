@@ -3,8 +3,8 @@
 set -x
 
 npm install -g n
-n 10
-npm install -g npm@6
+n 16
+npm install -g npm@8
 
 # Install latest pm2
 npm install -g pm2
